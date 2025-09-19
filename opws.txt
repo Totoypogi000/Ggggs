@@ -13,8 +13,23 @@ local Players = game:GetService("Players")
 local localPlayer = Players.LocalPlayer
 
 -- Load OrionLib
-local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/GRPGaming/Key-System/refs/heads/Xycer-Hub-Script/ZusumeLib(Slider)')))()
-local Window = OrionLib:MakeWindow({Name = "Zusume Hub", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
+local OrionLib = -- Minimal stub para maiwasang mag-crash ang script kung walang Orion
+local OrionLib = {}
+function OrionLib:MakeWindow(opts)
+    local window = {}
+    function window:MakeTab(tab) 
+        local t = {}
+        function t:AddSection(s) end
+        function t:AddButton(b) end
+        function t:AddDropdown(d) end
+        function t:AddParagraph(a,b) end
+        return t
+    end
+    function window:MakeNotification(n) end
+    return window
+end
+OrionLib = OrionLib -- ginagamit bilang table
+local Window = OrionLib:MakeWindow({Name = "Jake Melissa", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
 
 -- Tab: Global
 local TabGlobal = Window:MakeTab({
